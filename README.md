@@ -5,6 +5,8 @@
 Q: How do we use constraint propagation to solve the naked twins problem?  
 A: Constraint Propagation is all about using local constraints in a space (in the case of Sudoku, the constraints of each square) to dramatically reduce the search space. In this case, we can simply chain different strategies together (elimination, only choice, naked twins) to reduce search space in order to solve the problem. Just like the code in method `reduce_puzzle`, we can add `naked_twins` after the last existing strategy `only_choice`.
 
+The *Naked Twins* is a heuristic for sudoku problem. Bascially, if we ever see there are two same boxes within the same unit and having the same value (exactly two number in a box), we can assume they are *Naked Twins*. The *Naked Twins* eliminated the possbilities of having any of the those numbers (exists in the twins) in other boxes within the same unit. For instance, if *27* is the value of naked twins, then within the same unit, *2* and *7* can't exist in other boxes.
+
 # Question 2 (Diagonal Sudoku)
 Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
 A: We can reuse the existing logic of constraint propagation, the only thing missing that needs to be added is the new constraint which is the diagonal unit.
